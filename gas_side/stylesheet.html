@@ -1,0 +1,1086 @@
+<style>
+    /*--------------------------------
+  全体の設定
+  ---------------------------------*/
+  :root {
+    --fullback: #000000;
+    --littledark: hsl(0, 0%, 20%);
+    --bright: #ffffff;
+    --main: #ffffff;
+    --black: rgba(0, 0, 0, 0.70);
+    --main-text: #003714;
+    --insertcolor: rgb(245, 169, 169);
+  }
+  
+  body{
+    text-align:center;
+    font-family: "Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W3", 
+    "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", YuGothic,
+    "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    font-size: 20px;
+    line-height: 1.8;
+    letter-spacing: .8px;
+    color: var(--main-text);
+    background-color: var(--fullback);
+    /* background-color: rgb(0, 0, 0, 0.7); */
+    margin: auto;
+    padding: 0;
+    max-width: 93vw;
+    overflow-x: hidden;
+  
+  }
+  
+  p{
+    font-size: 30px;
+  }
+  
+  div.input-ui {
+    width: 100%; /* 親コンテナの幅を100%に設定 */
+    display: flex; /* Flexboxを使用して要素を配置 */
+    flex-direction: column; /* 子要素を縦方向に並べる */
+    align-items: center; /* 子要素を中央に配置 */
+  }
+  
+  .paragraph{
+    font-size: 20px;
+    color: #fff;
+    display: inline;
+  }
+   
+  button:hover {
+    background-color: #0056b3; /* ホバー時の背景色を変更 */
+  } 
+  
+  input {
+    width: 100%;
+    max-width: 400px;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  .ResMsg {
+    font-size: 0.6em;
+    color: var(--main-text);
+  }
+  
+  .OrdMsg{
+    font-size: 20px;
+    font-weight: bold;
+    color: #003714;
+    display: contents;
+  }
+  
+  div.loader1 {
+    display: none;
+  }
+  
+  .loader1,
+  .loader1:before,
+  .loader1:after {
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation: load7 1.8s infinite ease-in-out;
+    animation: load7 1.8s infinite ease-in-out;
+  }
+  .loader1 {
+    color: #007bff;
+    font-size: 10px;
+    margin: -20px auto 40px auto;
+    position: relative;
+    text-indent: -9999em;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+  }
+  .loader1:before,
+  .loader1:after {
+    content: "";
+    position: absolute;
+    top: 0;
+  }
+  .loader1:before {
+    left: -3.5em;
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+  }
+  .loader1:after {
+    left: 3.5em;
+  }
+  
+  div.loader2 {
+    display: none;
+  }
+  
+  .loader2,
+  .loader2:before,
+  .loader2:after {
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation: load7 1.8s infinite ease-in-out;
+    animation: load7 1.8s infinite ease-in-out;
+  }
+  .loader2 {
+    color: #007bff;
+    font-size: 10px;
+    margin: -20px auto 40px auto;
+    position: relative;
+    text-indent: -9999em;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+  }
+  .loader2:before,
+  .loader2:after {
+    content: "";
+    position: absolute;
+    top: 0;
+  }
+  .loader2:before {
+    left: -3.5em;
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+  }
+  .loader2:after {
+    left: 3.5em;
+  }
+  @-webkit-keyframes load7 {
+    0%,
+    80%,
+    100% {
+      box-shadow: 0 2.5em 0 -1.3em;
+    }
+    40% {
+      box-shadow: 0 2.5em 0 0;
+    }
+  }
+  @keyframes load7 {
+    0%,
+    80%,
+    100% {
+      box-shadow: 0 2.5em 0 -1.3em;
+    }
+    40% {
+      box-shadow: 0 2.5em 0 0;
+    }
+  }
+  
+  /* 斜めをタイトルを強調する*/
+  .slanting-background{
+    position: relative;
+  }
+  
+  .slanting-background::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -80px;
+    height: 10%;
+    padding: 20px;
+    background-color: var(--insertcolor);
+    transform: skewY(-0deg);
+    z-index: -1;
+  }
+  
+  .icon .icon-image{
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    top: 5px;
+    left: 50px;
+  }
+  
+   .section-heading{
+    text-align: center;
+    font-size: 70px;
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: -2%;
+    color: var(--main);
+  }
+  
+  th ,td{
+    white-space: nowrap;
+  }
+  
+  li{
+    text-align: left;
+  }
+  
+  ul{
+    margin-top: 1%;
+    margin-bottom: 1%;
+  }
+  
+  a{
+    color: var(--main);
+  }
+  
+  table {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .sec-grid{
+    flex-wrap: wrap;
+    border: double 12px var(--fullback);  
+    padding: 2%;
+    background-color: var(--main);
+    color: var(--main-text);
+  }
+  
+  .grid-inner{
+    display: flex;
+    flex: 0 0 46%;
+    justify-content: space-between;
+  }
+  
+  .section-body .works{
+    border: solid 2px;  
+    padding: 2%;
+  }
+  
+  .section-lead{
+    color: var(--main);
+  }
+  
+  .section-lead .works-url-link{
+    color: var(--insertcolor);
+  }
+  
+  .section-lead .works-url-link:hover{
+    color: var(--main);
+  }
+  
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0%;
+    width: 100vw;
+    height: 80px;
+    padding: 10px;
+    background-color: #ffffff;
+    color: #000000;
+    text-align: center;
+    z-index: 5;
+  }
+  
+  .header {
+    margin-top: 100px;
+  }
+  
+  iframe{
+   width:700px;
+   height:400px;
+  }
+  
+  .logo {
+    text-align: center;
+  }
+  
+  .logo-name {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 44px;
+    line-height: 1;
+    display: block;
+    margin-bottom: 5px;
+    text-align: center;
+    color: #fff;
+  }
+  
+  .logo-name span {
+    opacity: 0;
+    -webkit-transition: .6s ease-in-out;
+    transition: .6s ease-in-out;
+  }
+  
+  .logo-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 88px;
+    font-weight: normal;
+    line-height: 1;
+    display: block;
+    letter-spacing: .1em;
+    color: #fff;
+  }
+  
+  .logo-title span {
+    opacity: 0;
+    -webkit-transition: .6s ease-in-out;
+    transition: .6s ease-in-out;
+  }
+  
+  .menu-line{
+    position: fixed;
+    right: 120px;
+    top: 30px;
+    font-size: 15px;
+  }
+  
+  .hamburger {
+    width: 8vw;
+    height: 60px;
+    position: fixed;
+    right: 30px;
+    top: 20px;
+    float: right;
+  }
+  
+  .hamburger span {
+    position: absolute;
+    width: 5.1vh;
+    height: 0.7vh;
+    background-color: var(--fullback);
+    transition: .7s;
+  }
+  
+  .hamburger span:first-of-type {
+    top: 20%;
+  }
+  
+  .hamburger span:nth-of-type(2) {
+    top: 50%;
+  }
+  
+  .hamburger span:last-of-type {
+    top: 80%;
+  }
+  
+  .hamburger.active span:first-of-type {
+    top: 50%;
+    transform: rotate(45deg);
+  }
+  
+  .hamburger.active span:nth-of-type(2) {
+    opacity: 0;
+  }
+  
+  .hamburger.active span:last-of-type {
+    top: 50%;
+    transform: rotate(-45deg);
+  }
+  
+  .slide-menu {
+    background-color: rgba(255, 255, 255, 0.9);
+    position: fixed;
+    top: 65px;
+    width: 100%;
+    left: 0;
+    transform: translateX(100%);
+    transition: .5s;
+  }
+  
+  .slide-menu li {
+    color: var(--main-text);
+    line-height: 400%;
+    text-align: center;
+    max-width: 90vw;
+    list-style: none;
+  }
+  
+  .slide-menu.active {
+    transform: translateX(0);
+  }
+  
+  .out-refer{
+    color:var(--fullback);
+    font-weight: bold;
+  }
+  
+    .contact-section{
+      margin-bottom: 8%;
+    }
+  
+    .clearfix::after {
+      content: "";
+      display: table;
+      clear: both;
+      margin-bottom: 30px;
+    }
+  
+  .about-body{
+    flex-wrap: wrap;
+  }
+  
+  /*--------------------------------
+  ポップアップのデザイン
+  ---------------------------------*/
+  .picture{
+    max-width: 50%; /* 50%のビューポート幅に対する幅 */
+    margin: auto;
+    aspect-ratio: 4 / 3; /* 16:9のアスペクト比 */
+    object-fit: cover; /* アスペクト比を維持しつつ、要素にフィットさせる */
+  }
+  
+  .overlay {
+    position: fixed;
+    top: 0vh;
+    bottom: 0vh;
+    left: 0vw;
+    right: 0vw;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .popup {
+    position: relative;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    color:var(--fullback);
+    /* border-radius: 5px; */
+    max-width: 60vw;
+    max-height: 60vw;
+    position: flex;
+    transition: all .5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .popup .content {
+    max-height: 30%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .overlay:target {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .popup h2 {
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+  }
+  
+  .popup .close {
+    position: absolute;
+    top: -5%;
+    left: 5%;
+    transition: all 200ms;
+    font-size:10vw;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--fullback);
+  }
+  
+  .popup .close:hover {
+    color: var(--littledark);
+  }
+  
+  .popup .content img {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .pp-content{
+    padding-left: 3%;
+    padding-right: 3%;
+    text-align: left;
+  }
+  /*--------------------------------
+  モーダルのデザイン
+  ---------------------------------*/
+  .over-window{
+    display: none;
+  }
+  
+      /* モーダルのスタイル */
+      .modal {
+        width: 90%;
+        height: 80%;
+        display: none; /* 初期状態では非表示 */
+        position: fixed; /* フォームがスクロールしても固定 */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: #fff;
+        border: 3px solid var(--fullback);
+        z-index: 10;
+        font-size: 18px;
+        color: var(--fullback);
+        /* max-height: 90vh;  モーダルの最大高さを指定 */
+        overflow-y: auto; /* スクロール可能にする */
+        transition: all .5s ease-in-out;
+      }
+  
+    /* モーダルの背後の背景スタイル */
+    .modal-background {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* 透明な黒背景 */
+        z-index: 1;
+    }
+  
+    /* 閉じるボタンのスタイル */
+    .modal .close {
+      color: var(--fullback);
+      float: right;
+      font-size: 5vw;
+      font-weight: bold;
+  }
+  
+  .modal .close:hover {
+    color: var(--littledark);
+  }
+  
+  .feature-title, .outline-title{
+    font-size: 25px;
+    font-style: 8;
+  }
+  
+  .video-link{
+    color: var(--insertcolor);
+  }
+  
+  .video-link:hover{
+    color: var(--fullback);
+  }
+  
+  /*--------------------------------
+  コンタクトセクション
+  ---------------------------------*/
+  .contact-list {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  
+  .contact-item {
+    width: 100px;
+    margin: 0 20px;
+    text-align: center;
+  }
+  
+  .contact-name {
+    font-size: 30px;
+    display: block;
+    margin-top: 5px;
+    color: var(--insertcolor);
+  }
+  
+  .contact-name:hover{
+    color: var(--main);
+  }
+  .contact-image {
+    width: 90px;
+    background-color: #fff;
+  }
+  
+  .contact-image:hover {
+    animation:1.5s linear infinite rotation;
+  }
+  
+  /*-- 回転 --*/
+  @keyframes rotation{
+    0%{ transform:rotate(0);}
+    100%{ transform:rotate(360deg); }
+  }
+  
+  .contact-text {
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  
+  input[id="in"] {
+    width: 300px;
+    height: 40px;
+    font-size: 6vw;
+  }
+  
+  input[id="oomori"]{
+    width: 300px;
+    height: 40px;
+    font-size: 6vw;
+  }
+  
+  select {
+    margin-top: 5vh;
+    width: 50vw;
+    height: 6vh;
+  }
+  
+  a[id="hamburger"] {
+    color: var(--main-text);
+    font-size: 3vw;
+  }
+  
+  header {
+    position: fixed;
+    top: 0vh;
+    right: 0%;
+    width: 100%;
+    height: 10%;
+    padding: 10px;
+    background-color: #31a9ee;
+    background-image: url(manaita.png);
+    color: #000000;
+    text-align: center;
+  }
+  
+  .alert{
+    margin-top: 5vh;
+    text-align: center;
+    border: 2px solid #160043a8;
+    /* border-radius: 20px/50px; */
+    background-color: rgb(239, 248, 255);
+    margin-bottom: 5vh;
+  }
+  
+  .main_content {
+    text-align: center;
+    border: 2px solid #160043a8;
+    /* border-radius: 20px/50px; */
+    /* background-color: rgb(211, 235, 255); */
+    background-image: url(mokume.jpg);
+    margin-bottom: 15vh;
+  }
+  
+  .logo {
+    position: fixed;
+    color: #000e38;
+    top: 3vh;
+    right: 40vw;
+  }
+  .logo_title{
+    top: 3%;
+    font-family: "HGP行書体","Great Vibes";
+    font-size: 12vw;
+    font-weight: 700;
+  }
+  
+  ol {
+    text-align: center;
+    font-size: 5vw;
+    font-weight: bold;
+  }
+  
+  .notice{
+    text-align: left;
+  }
+  
+  .urgency {
+    color: rgb(169, 33, 33);
+    font-family: "HGP行書体","Great Vibes";
+    font-size: 7vw;
+  }
+  
+  .food_item {
+    display: flex;
+     justify-content: center;
+    align-items: center; 
+    flex-direction: column; /* ボタンが横に配置されるように指定 */
+  }
+  
+  .box {
+    width: 90vw;
+    background: rgba(255, 255, 255, 0.2);
+    background-clip: padding-box;
+    text-align: center;
+    display: grid;
+    gap: 3vw;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 10vh;
+    margin-bottom: 5vh;
+  }
+  
+  .click {
+    display: grid;
+    /* justify-content: center;
+    align-items: center; */
+    font-size: 2em;
+    margin: 2vw;
+    padding: 2vw;
+    background-color: #fff;
+    color: #000000;
+    /* border-radius: 20px/50px; */
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    border-radius: 20px; /* 丸める角の半径を指定 */
+  }
+  
+  .top_message{
+    display: grid;
+    /* justify-content: center;
+    align-items: center; */
+    font-size: 4em;
+    margin-top: 10%;
+    
+    padding: 2vw;
+    background-color: #fff;
+    color: #000000;
+    /* border-radius: 20px/50px; */
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    border-radius: 20px; /* 丸める角の半径を指定 */
+  }
+  
+  /* .click:hover {
+    background: #066fd8;
+  } */
+  
+  .overlay {
+    position: fixed;
+    top: 0vh;
+    bottom: 0vh;
+    left: 0vw;
+    right: 0vw;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .overlay:target {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  
+  /*--------------------------------
+  スマホサイズ
+  ---------------------------------*/
+  @media screen and (orientation: portrait) { 
+    body{
+      font-size: 18px;
+    }
+  
+    .section-heading{
+      font-size: 50px;
+    }
+  
+    th ,td{
+      white-space: wrap;
+    }   
+    
+    /*--------------------------------
+  全体のデザイン
+  ---------------------------------*/
+  /*・左右交互に寄せる 
+    ・アウトラインをとる*/
+    .about-section .inner{
+      max-width: 92vw;
+      margin-top: 90px;
+      float: center;
+      margin-bottom: 8%;
+    }
+  
+    .career-section .inner{
+      max-width:92vw;
+      float: center;
+      margin-bottom: 8%;
+    }
+  
+    .qualification-section{
+      max-width: 92vw;
+      float: center;
+      margin-bottom: 8%;
+    }
+  
+    .skill-section{
+      margin-bottom: 8%;
+    }
+  
+    .works-section{
+      margin-bottom: 8%;
+    }
+  
+    .contact-section{
+      margin-bottom: 8%;
+    }
+  
+    .clearfix::after {
+      content: "";
+      display: table;
+      clear: both;
+      margin-bottom: 30px;
+    }
+  /*--------------------------------
+  アバウトセクション
+  ---------------------------------*/
+  /* 人がもたれかかるようなデザイン */
+  .pull-image{
+    width: 200px; /* 50%のビューポート幅に対する幅 */
+    aspect-ratio: 1 / 1; /* 16:9のアスペクト比 */
+    align-items: left;
+  }
+  
+  .pull-image-wrapper{
+    display: none;
+  }
+  
+  .push-image{
+    width: 200px; /* 50%のビューポート幅に対する幅 */
+    aspect-ratio: 1 / 1; /* 16:9のアスペクト比 */
+    align-items: left;
+  }
+  
+  .push-image-wrapper{
+    display: none;
+  }
+  .controll-image{
+    width: 200px; /* 50%のビューポート幅に対する幅 */
+    aspect-ratio: 1 / 1; /* 16:9のアスペクト比 */
+    align-items: left;
+  }
+  
+  .controll-image-wrapper{
+    display: none;
+  }
+  
+  /*--------------------------------
+  スキルセクション
+  ---------------------------------*/
+  /*・見やすく大きく
+    ・横に二分割 */
+    .skill-items{
+      max-width: 90vw;
+    }
+  
+    .skill-list {
+      display: grid;
+      margin: auto;
+      justify-content: center; /* 主軸方向（横方向）を中央に配置 */
+      align-items: center; /* 交差軸方向（縦方向）を中央に配置 */
+    }
+    
+    .skill-item {
+      margin-bottom: 6%;
+    }
+  
+    .skill-image{
+      width: 40vw; /* 50%のビューポート幅に対する幅 */
+      aspect-ratio: 1 / 1; /* 16:9のアスペクト比 */
+      align-items: center;
+    }
+  
+    .skill-content{
+      max-width: 90vw;
+      overflow-wrap: break-word;
+    }
+    
+  .skill-title{
+    text-align: center;
+    font-size: 120%;
+  }
+  
+  .python-entire, .micon-entire, .ros-entire{
+    background-color: var(--bright);
+    color: var(--fullback);
+    border: solid 5px transparent;
+    border-radius: 10%;
+    padding: 0.5%;
+  }
+  
+  .cpp-entire, .web-entire, .tool-entire{
+    color: var(--main);
+  }
+  
+  /*--------------------------------
+  資格セクション
+  ---------------------------------*/
+  /* 証明を載せたいね */
+  
+  
+  /*--------------------------------
+  ワークセクション
+  ---------------------------------*/
+  /*・横に三分割
+    ・セクションを分けて、+を押したら詳細表示 */
+  .works-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: center; /* 主軸方向（横方向）を中央に配置 */
+    align-items: center; /* 交差軸方向（縦方向）を中央に配置 */
+  }
+  
+  .works-item {
+    margin-bottom: 20px;
+    border: solid 5px var(--bright);
+    border-radius: 10%;
+    height: 40%;
+    margin-right: 20px;
+    width: 90vw;
+  }
+  
+  .works-body{
+    /* max-width: 30vw; */
+    width: 90%;
+    overflow-wrap: break-word;
+    flex-wrap: wrap;
+  }
+  
+  .works-image{
+    padding-top: 3%;
+    width: 80vw; /* 50%のビューポート幅に対する幅 */
+    aspect-ratio: 16 / 9; /* 16:9のアスペクト比 */
+    align-items: center;
+  }
+  
+  .works-title{
+    text-align: center;
+    font-size: 140%;
+  }
+  
+  .pp-content{
+    width: 95%;
+    height: auto;
+    float:left;
+    overflow: auto;
+    box-sizing: border-box;
+    border-right: none; /* 右側に線を追加 */
+  }
+  
+  .pp-item{
+    padding-left: 3%;
+    width: 90%;
+    overflow: none;
+    box-sizing: border-box;
+    font-size: 15px;
+  }
+  
+  
+  /*--------------------------------
+  ポップアップのデザイン
+  ---------------------------------*/
+    .overlay {
+      position: fixed;
+      top: 0vh;
+      bottom: 0vh;
+      left: 0vw;
+      right: 0vw;
+      background: rgba(0, 0, 0, 0.7);
+      transition: opacity 500ms;
+      visibility: hidden;
+      opacity: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .popup {
+      position: relative;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      color:var(--fullback);
+      /* border-radius: 5px; */
+      width: 90%;
+      position: flex;
+      transition: all .5s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .popup .content {
+      max-height: 30%;
+      overflow: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .overlay:target {
+      visibility: visible;
+      opacity: 1;
+    }
+    
+    .popup h2 {
+      margin-top: 0;
+      color: #333;
+      font-family: Tahoma, Arial, sans-serif;
+    }
+    
+    .popup .close {
+      position: absolute;
+      top: -5%;
+      left: 5%;
+      transition: all 200ms;
+      font-size:10vw;
+      font-weight: bold;
+      text-decoration: none;
+      color: var(--fullback);
+    }
+    
+    .popup .close:hover {
+      color: var(--littledark);
+    }
+    
+    .popup .content img {
+      display: flex;
+      justify-content: center;
+    }
+    
+    .pp-content{
+      padding-left: 3%;
+      padding-right: 3%;
+      text-align: center;
+    }
+    /*--------------------------------
+    モーダルのデザイン
+    ---------------------------------*/
+        /* モーダルのスタイル */
+        .modal {
+          width: 80%;
+          height: 70%;
+          margin-top: 50px;
+          font-size: 16px;
+        }
+    
+      /* 閉じるボタンのスタイル */
+      .modal .close {
+        color: var(--fullback);
+        float: right;
+        font-size: 10vw;
+        font-weight: bold;
+    }
+    
+    .feature-title, .outline-title{
+      font-size: 20px;
+      font-style: bold;
+      text-align: left;
+    }
+  
+    /* .over-window{
+      display: none;
+    } */
+    
+  }  
+  </style>

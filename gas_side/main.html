@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <?!= HtmlService.createHtmlOutputFromFile('stylesheet').getContent(); ?>
+  </head>
+  <body>
+       <nav class="gnav">
+       <div class="icon">
+        <a href="https://github.com/settings/profile">
+          <img class="icon-image" src="./item/works/portfolio/背景ロゴ.png" alt="icon">
+       </a>
+       </div>
+       <div class="menu-line">
+       こちらから<br>メニュー画面が開けます👉
+       <div class="hamburger">
+         <!-- ハンバーガーメニューの線 -->
+         <span></span>
+         <span></span>
+         <span></span>
+       </div>
+       <!-- /ハンバーガーメニューの線 -->
+       </div>
+       <ul class="slide-menu">
+         <li>
+           <a class="out-refer" id="hamburger" href="https://shim-bei.github.io/portfolio-Shimbei/">制作者のホームページ</a>
+           <!-- href="http://sushin.php.xdomain.jp/sushi/home.html" -->
+         </li>
+         <li>
+           <a class="out-refer" id="hamburger" href="https://www.ct.omu.ac.jp/">公大高専　ホームページ</a>
+         </li>
+       </ul>
+ 
+   <!-- <script src="./js/hamburger.js"></script> -->
+   </nav>
+
+   <div class="wrapper"> 
+     <main class="main-content">  
+       <div class="checklist">
+         <div class="header">
+            <div class="top_message">
+                <h2 class="ResMsg" id="ResMsg">Welcome to Robotics＆IoT lab!</h2>
+                <!-- <h2 class="ResMsg" id="ResMsg"><?= JSON.parse(paramData)[0] ?></h2> -->
+            </div>
+            <div id="IsBusy" class="loader1"></div>
+      
+           <div class="food_item">
+            <!-- <div class="box"> -->
+            <!-- ポップアップの画像を選択する -->
+            <!-- <a>
+               <div class="click">
+                <button id="Button-ON">
+                    <img class="picture" src="item/marchandise/torimayodon.jpg" width="100%" alt="item">
+                </button>
+                ON!
+              </div>
+            </a> -->
+            <!-- 
+            <a>
+                <div class="click">
+                    <button id="Button-OFF">
+                        <img class="picture" src="item/marchandise/torimayodon.jpg" width="100%" alt="item">
+                        <div class="picture"> OFF! </div>
+                    </button>
+                    OFF!
+                </div>
+            </a> 
+            -->
+          </div>   
+       <div class="clearfix"></div>
+       
+       <section class="section log-section" id="log-section">
+        <div class="slanting-background"></div>
+          <div class="section-heading">
+            <h2 class="heading-primary">LOG</h2>
+        <div class="inner">
+          </div>
+          <div class="section-lead">
+            <div class="food_item">
+                <div class="click">
+                    <p>
+                        現在の室温: <span id="now_temp"><?= JSON.parse(paramData)[0] ?></span>℃
+                    </p>
+                </div>
+                <div class="click">
+                  <p>
+                      最終更新（エアコン）: <span id="input_time_air"><?= JSON.parse(paramData)[1] ?></span>
+                  </p>
+              </div>
+              <div class="click">
+                  <p>
+                      最終更新（鍵）: <span id="input_time_key"><?= JSON.parse(paramData)[2] ?></span>
+                  </p>
+              </div>
+          </div>
+            <br>
+          </div>
+        </div>
+      </section>
+
+       
+       <!-- .contact-secion -->
+       <section class="section contact-section" id="contact-section">
+         <div class="slanting-background"></div>
+         <div class="inner">
+           <div class="section-heading">
+             <h2 class="heading-primary">CONTACT</h2>
+           </div>
+           <div class="section-lead">
+             <p>
+               お問合わせは下記のSNSからご連絡をください.
+             </p>
+             <br>
+           </div>
+           <div class="section-body contact">
+             <ul class="contact-list">
+               <li class="contact-item">
+                 <a class="contact-image-wrapper" href="https://qiita.com/shim-bei" target="_blank">
+                   <img class="contact-image" src="item/contact/Qiita.svg" alt="">
+                   <span class="contact-name">qiita</span>
+                 </a>
+               </li>　　　　
+               
+               <li class="contact-item">
+                 <a class="contact-image-wrapper" href="https://github.com/Shim-bei" target="_blank">
+                   <img class="contact-image" src="item/contact/github.svg" alt="">
+                   <span class="contact-name">GitHub</span>
+                 </a>
+               </li>
+             </ul>
+           </div>
+         </div>
+       </section>
+       <!-- /.contact-secion -->
+ 
+     </main>
+ 
+   </div>  
+  <?!= HtmlService.createHtmlOutputFromFile('javascript').getContent(); ?>
+  </body>
+</html>
